@@ -25,11 +25,16 @@ app.get('/ola/:nome/:sobrenome?', function(req, res){
 
     var nome = req.params.nome
     var sobrenome = req.params.sobrenome
+    var familia = req.query['familia'] 
 
     if(sobrenome){
-        res.send(`<h1>Olá ${nome} ${sobrenome}</h1>`)
+        nome += ' '    
+        nome += sobrenome    
     }
-
+    if(familia){
+        nome += ' '    
+        nome += familia
+    }
     res.send(`<h1>Olá ${nome}</h1>`)
 });
 
